@@ -51,7 +51,7 @@
                      <Font size="36.0" />
                   </font>
                </Label>
-               <Button fx:id="continueButton" mnemonicParsing="false" onMouseClicked="#newWord" opacity="0.0" prefWidth="162.0" text="Continue" textAlignment="CENTER" />
+               <Button fx:id="continueButton" mnemonicParsing="false" onMouseClicked="#nextWord" opacity="0.0" prefWidth="162.0" text="Continue" textAlignment="CENTER" />
             </children>
          </VBox>
          <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="500.0">
@@ -59,7 +59,7 @@
                <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="106.0" prefWidth="294.0" style="-fx-border-color: black;" VBox.vgrow="NEVER">
                   <children>
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Attemp" />
-                     <Label fx:id="attemp" text="0" />
+                     <Label fx:id="attempt" text="0" />
                   </children>
                </VBox>
             </children>
@@ -68,7 +68,7 @@
    </HBox>
    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
       <children>
-         <Label fx:id="word" text="Press Start to begin">
+         <Label fx:id="word" text="Press new game to begin">
             <font>
                <Font size="24.0" />
             </font></Label>
@@ -228,6 +228,11 @@
          <Button fx:id="a" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#letterClick" prefHeight="147.0" prefWidth="101.0" text="A">
             <font>
                <Font size="24.0" />
+            </font>
+         </Button>
+         <Button mnemonicParsing="false" onMouseClicked="#hint" prefHeight="92.0" prefWidth="184.0" text="Hint" GridPane.columnIndex="9" GridPane.rowIndex="2">
+            <font>
+               <Font name="System Bold" size="18.0" />
             </font>
          </Button>
       </children>

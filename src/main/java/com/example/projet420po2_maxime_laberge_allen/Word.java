@@ -10,10 +10,6 @@ public class Word {
     private String currentWord;
     private int score = 0;
     private int attempt = 0;
-
-
-
-
     private List<String> guess = new ArrayList<>();
     //private ArrayList<String> guess = new ArrayList<>();
 
@@ -48,6 +44,14 @@ public class Word {
         return wordHiding();
 
     }
+    public String randomLetter(){
+        String letter;
+        do{
+            letter = String.valueOf(currentWord.charAt(random.nextInt(currentWord.length())));
+        }while(guess.contains(letter));
+
+        return letter;
+    }
 
     public int getScore() {
         return score;
@@ -68,6 +72,14 @@ public class Word {
     public String getCurrentWord() {return currentWord;}
 
     public void setCurrentWord(String currentWord) {this.currentWord = currentWord;}
+
+    public List<String> getGuess() {
+        return guess;
+    }
+
+    public void setGuess(List<String> guess) {
+        this.guess = guess;
+    }
 }
 
 
