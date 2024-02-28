@@ -2,10 +2,16 @@ package com.example.projet420po2_maxime_laberge_allen;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +26,8 @@ public class HangmanController {
   @FXML private Label nameLabel;
   @FXML private Button continueButton;
   @FXML private Button a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
+  @FXML private Circle hangman1;
+  @FXML private Line hangman2, hangman3, hangman4, hangman5, hangman6;
   @FXML private  List<Button> buttonList = new ArrayList<>();
   private boolean gameComplete;
   private boolean firstRun;
@@ -44,10 +52,7 @@ public class HangmanController {
         continueButton.setDisable(true);
         gameComplete = false;
         askName();
-
-
-
-
+        hangmanerase();
     }
    @FXML
     protected void letterClick(Event buttonId){ // when a letter is chosen it will disable the corresponding letter and check is the letter is in the word or not
@@ -70,6 +75,7 @@ public class HangmanController {
             winningState.setText("You lose");
             word.setText(session.getCurrentWord());
         }
+        hangmanDraw();
 
        score.setText(String.valueOf(session.getScore())); // refresh the score and attempts
        attempt.setText(String.valueOf(session.getAttempt()));
@@ -87,6 +93,7 @@ public class HangmanController {
         continueButton.setOpacity(0);
         continueButton.setDisable(true);
         gameComplete = false;
+        hangmanerase();
     }
     public void askName(){
         TextInputDialog dialog = new TextInputDialog();
@@ -149,6 +156,38 @@ public class HangmanController {
         buttonList.add(z);
         System.out.println(buttonList.size());
     }
+    public void hangmanDraw(){
+        int attempt = session.getAttempt();
+        switch (attempt){
+            case 1:
+                hangman1.setFill(Color.BLACK);
+                break;
+            case 2:
+                hangman2.setStroke(Color.BLACK);
+                break;
+            case 3:
+                hangman3.setStroke(Color.BLACK);
+                break;
+            case 4:
+                hangman4.setStroke(Color.BLACK);
+                break;
+            case 5:
+                hangman5.setStroke(Color.BLACK);
+                break;
+            case 6:
+                hangman6.setStroke(Color.BLACK);
+                break;
+        }
+    }
+    public void hangmanerase(){
+        hangman1.setFill(Color.TRANSPARENT);
+        hangman2.setStroke(Color.TRANSPARENT);
+        hangman3.setStroke(Color.TRANSPARENT);
+        hangman4.setStroke(Color.TRANSPARENT);
+        hangman5.setStroke(Color.TRANSPARENT);
+        hangman6.setStroke(Color.TRANSPARENT);
+    }
+
 
 
 }
